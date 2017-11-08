@@ -1,4 +1,8 @@
 
+.col {
+  padding: 10px 0px 10px 0px;
+}
+
 .card-columns {
   column-count:1;
 }
