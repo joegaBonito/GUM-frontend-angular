@@ -7,13 +7,14 @@
   <div class="card-columns col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <div class="infinite-scroll" infiniteScroll
             [infiniteScrollDistance]="2"
-            [infiniteScrollThrottle]="9"
+            [infiniteScrollThrottle]="300"
             (scrolled)="onScrollDown()">
       <div *ngFor="let item of items" class="card">
+        <mdb-spinner *ngIf="item==null" spinnerType="big" spinnerColor="blue"></mdb-spinner>
         <!-- <img class="card-img-top img-fluid" src="..." alt="Card image cap"> -->
-        <p class="card-text">{{item.id}}</p>
         <div class="card-block">
-          <h4 class="card-title">{{item.title}}</h4>
+          <p class="card-text" >{{item.id}}</p>
+          <h4 class="card-title" >{{item.title}}</h4>
           <p class="card-text">{{item.body}}</p>
         </div>
       </div>

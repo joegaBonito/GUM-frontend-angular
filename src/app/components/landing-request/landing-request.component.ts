@@ -22,7 +22,7 @@ export class LandingRequestComponent implements OnInit {
     console.log('scrolled!!');
     // add another 6 items
     const start = this.sum;
-    this.sum += 6;
+    this.sum += 3;
       for (let i = start; i < this.sum; ++i) {
         this.items.push(this.landingRequestService.getPost(i));
       }
