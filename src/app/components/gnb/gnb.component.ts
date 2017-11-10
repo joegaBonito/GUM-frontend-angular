@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GnbComponent implements OnInit {
 
+  autoClose:boolean = true;
+
   constructor() { }
 
   ngOnInit() {
   }
-
+  onClickDrop($event) {
+    console.log($event.target);
+  }
 }
