@@ -7,13 +7,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GnbComponent implements OnInit {
 
-  autoClose:boolean = true;
+  innerWidth:any;
+  show:boolean = true;
+  showTogglerIcon:boolean = true;
 
-  constructor() { }
+  constructor() {
+    //Gets the resolution width of the screen on load.
+    this.innerWidth = window.screen.width;
+ }
 
   ngOnInit() {
+    if(this.innerWidth < 992) {
+      this.show = false;
+      this.showTogglerIcon = false;
+    }
   }
-  onClickDrop($event) {
-    console.log($event.target);
+  //Gets the resolution width of the screen on resize.
+  onResize(event) {
+   this.innerWidth = event.target.innerWidth;
+   if (this.innerWidth < 992) {
+      this.show = false;
+      this.showTogglerIcon = false;
+   } else {
+     this.show = true;
+     this.showTogglerIcon = true;
+   }
+}
+  //Toggle GNB if the resolution is below 992px
+  toggleCollapse() {
+    if(this.innerWidth < 992)
+      this.show = !this.show;
   }
+
+  //Make 'show' false on clicking the logo if the resolution is below 992px
+  onClickLogo() {
+    if(this.innerWidth < 992)
+      this.show = false;
+  }
+
 }

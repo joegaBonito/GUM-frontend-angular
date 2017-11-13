@@ -10,7 +10,6 @@
             [infiniteScrollThrottle]="300"
             (scrolled)="onScrollDown()">
       <div *ngFor="let item of items" class="card">
-        <mdb-spinner *ngIf="item==null" spinnerType="big" spinnerColor="blue"></mdb-spinner>
         <!-- <img class="card-img-top img-fluid" src="..." alt="Card image cap"> -->
         <div class="card-block">
           <p class="card-text" >{{item.id}}</p>

@@ -1,8 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { NgModule } from '@angular/core';
 
 //Components
 import { AppComponent } from './app.component';
@@ -25,9 +24,7 @@ import { LandingRequestService } from './components/landing-request/services/lan
   imports: [
     BrowserModule,
     InfiniteScrollModule,
-    MDBBootstrapModule.forRoot()
   ],
-  schemas:[NO_ERRORS_SCHEMA],
   providers: [
     LandingRequestService
   ],
