@@ -4,15 +4,15 @@ Angular GNB Toggle w/ Mobile & PC
 2. (click)="toggleCollapse()" -> Allows angular to toggle the navbar on click event
 -->
 
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <a class="navbar-brand" href="#" routerLink="/" (click)="onClickLogo()"><strong>GUM</strong></a>
+<nav class="navbar navbar-toggleable-md navbar-light bg-inverse text-white">
+  <a class="navbar-brand text-white" href="#" routerLink="/" (click)="onClickLogo()"><strong>GUM</strong></a>
   <button class="navbar-toggler navbar-toggler-right" type="button" (click)="toggleCollapse()">
-    <span class="navbar-toggler-icon"></span>
+    <span class="navbar-toggler-icon text-white"></span>
   </button>
   <div class="collapse navbar-collpase" id="navbarNavDropdown" (window:resize)="onResize($event)" [class.show] = "show">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="/locations" (click)="toggleCollapse()">Locations</a>
+        <a class="nav-link text-white" href="/locations" (click)="toggleCollapse()">Locations</a>
       </li>
     </ul>
   </div>

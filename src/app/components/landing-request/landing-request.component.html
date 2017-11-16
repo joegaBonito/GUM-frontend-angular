@@ -1,20 +1,21 @@
 <div class="row">
   <div class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-    <button class="btn btn-primary">Let's Request</button>
+    <button type="button" class="btn btn-primary box-shadow button-rotate">Let's Request</button>
   </div>
 </div>
 <div class="row">
   <div class="card-columns col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <div class="infinite-scroll" infiniteScroll
             [infiniteScrollDistance]="2"
-            [infiniteScrollThrottle]="300"
+            [infiniteScrollThrottle]="500"
+            [infiniteScrollDisabled] = "stopTheDownScroll"
             (scrolled)="onScrollDown()">
       <div *ngFor="let item of items" class="card">
         <!-- <img class="card-img-top img-fluid" src="..." alt="Card image cap"> -->
         <div class="card-block">
-          <p class="card-text" >{{item.id}}</p>
-          <h4 class="card-title" >{{item.title}}</h4>
-          <p class="card-text">{{item.body}}</p>
+          <p class="card-text" >{{item?.id}}</p>
+          <h4 class="card-title" >{{item?.title}}</h4>
+          <p class="card-text">{{item?.body}}</p>
         </div>
       </div>
     </div>

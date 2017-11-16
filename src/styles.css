@@ -2,3 +2,7 @@
 body {
   min-width:320px;
 }
+
+.box-shadow {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}

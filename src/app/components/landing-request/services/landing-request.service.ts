@@ -7,27 +7,47 @@ import {RequestPosts} from '../model/mock-request-post';
 
 @Injectable()
 export class LandingRequestService {
-
+  start:number;
+  sum:number = 9;
   items:RequestPost[] = [];
+  realItems:RequestPost[] = [];
+  noMoreData:boolean = false;
 
-  constructor() { }
-
-  getPosts() {
-      return RequestPosts;
+  constructor() {
+    this.items = RequestPosts;
+    console.log(this.items);
   }
 
   getInitialPosts():Observable<RequestPost[]> {
-    for (let i = 0; i < 9; i ++) {
-      this.items.push(RequestPosts[i]);
+    for (let i = 0; i < this.sum; i ++) {
+      this.realItems.push(this.items[i]);
     }
-    return of(this.items);
+    return of(this.realItems);
   }
 
-  getPost(id:number):RequestPost {
-    for(let i = 0; i < RequestPosts.length; i++) {
-      if(id === RequestPosts[i].id) {
-        return RequestPosts[i];
+  onScrollDown():Observable<RequestPost[]> {
+    // add another 3 items
+    this.start = this.sum;
+    this.sum += 3;
+      for (let i = this.start; i < this.sum; ++i) {
+          if(this.items[this.start] === null) {
+            this.noMoreData = true;
+            return of(this.realItems);
+          }
+          this.realItems.push(this.items[i]);
+      }
+      return of(this.realItems);
+    }
+
+    checkIfDataIsNoMore():boolean {
+      return this.noMoreData;
+    }
+
+    getPost(id:number):RequestPost {
+      for(let i = 0; i < this.items.length; i++) {
+        if(id === this.items[i].id) {
+          return this.items[i];
+        }
       }
     }
-  }
 }

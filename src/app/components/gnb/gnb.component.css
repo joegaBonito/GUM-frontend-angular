@@ -2,6 +2,22 @@ nav .container {
   width: 100%;
 }
 
+button.navbar-toggler.navbar-toggler-right:hover {
+  border-color: rgba(255,255,255, 0.1)
+}
+
+a.nav-link {
+  padding: 8px;
+}
+
+a.nav-link:hover{
+  background-color:grey;
+}
+
+button.navbar-toggler.navbar-toggler-right:focus {
+  outline: #fff auto 5px !important;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media screen and (min-width: 576px) {
   .border-right {

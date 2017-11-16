@@ -8,8 +8,9 @@ import {RequestPost} from './model/request-post';
   styleUrls: ['./landing-request.component.css']
 })
 export class LandingRequestComponent implements OnInit {
-  sum = 9;
+
   items:RequestPost[] = [];
+  stopTheDownScroll:boolean = false;
 
   constructor(private landingRequestService:LandingRequestService) {
       this.landingRequestService.getInitialPosts().subscribe(items => this.items = items);
@@ -19,12 +20,8 @@ export class LandingRequestComponent implements OnInit {
   }
 
   onScrollDown () {
+    this.landingRequestService.onScrollDown().subscribe((items) => {this.items = items});
+    this.stopTheDownScroll =  this.landingRequestService.checkIfDataIsNoMore();
     console.log('scrolled!!');
-    // add another 6 items
-    const start = this.sum;
-    this.sum += 3;
-      for (let i = start; i < this.sum; ++i) {
-        this.items.push(this.landingRequestService.getPost(i));
-      }
-    }
+  }
 }
