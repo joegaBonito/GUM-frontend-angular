@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
 
 //Components
 import { AppComponent } from './app.component';
@@ -12,6 +14,11 @@ import { GnbComponent } from './components/gnb/gnb.component';
 
 //Services
 import { LandingRequestService } from './components/landing-request/services/landing-request.service';
+import { LandingSupportService } from './components/landing-support/services/landing-support.service';
+
+const routes: Routes = [
+  { path: '', component: LandingComponent }
+];
 
 @NgModule({
   declarations: [
@@ -23,10 +30,12 @@ import { LandingRequestService } from './components/landing-request/services/lan
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(routes),
     InfiniteScrollModule,
   ],
   providers: [
-    LandingRequestService
+    LandingRequestService,
+    LandingSupportService
   ],
   bootstrap: [AppComponent]
 })

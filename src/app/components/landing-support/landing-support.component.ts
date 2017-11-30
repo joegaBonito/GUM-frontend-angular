@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {LandingSupportService}  from './services/landing-support.service';
+import {SupportPost} from './model/support-post';
 
 @Component({
   selector: 'app-landing-support',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingSupportComponent implements OnInit {
 
-  constructor() { }
+  items:SupportPost[] = [];
+  stopTheDownScroll:boolean = false;
+
+  constructor(private landingSupportService:LandingSupportService) {
+      this.landingSupportService.getInitialPosts().subscribe(items => this.items = items);
+  }
 
   ngOnInit() {
   }
 
+  onScrollDown () {
+    this.landingSupportService.onScrollDown().subscribe((items) => {this.items = items});
+    this.stopTheDownScroll =  this.landingSupportService.checkIfDataIsNoMore();
+    console.log('scrolled!!');
+  }
 }
