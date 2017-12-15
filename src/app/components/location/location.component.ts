@@ -2,11 +2,11 @@ import { Component, Inject, PLATFORM_ID, OnInit } from '@angular/core';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 
 @Component({
-  selector: 'app-landing',
-  templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.css']
+  selector: 'app-location',
+  templateUrl: './location.component.html',
+  styleUrls: ['./location.component.css']
 })
-export class LandingComponent implements OnInit {
+export class LocationComponent implements OnInit {
 
   constructor(@Inject(PLATFORM_ID) private platformId:Object) { }
 
@@ -17,5 +17,4 @@ export class LandingComponent implements OnInit {
       //Server Only Code
     }
   }
-
 }

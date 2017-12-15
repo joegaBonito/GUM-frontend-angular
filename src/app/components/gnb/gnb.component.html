@@ -12,7 +12,7 @@ Angular GNB Toggle w/ Mobile & PC
   <div class="collapse navbar-collpase" id="navbarNavDropdown" (window:resize)="onResize($event)" [class.show] = "show">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link text-white" href="/locations" (click)="toggleCollapse()">Locations</a>
+        <a class="nav-link text-white" routerLink="/locations" (click)="toggleCollapse()">Locations</a>
       </li>
     </ul>
   </div>

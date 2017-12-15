@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, OnInit } from '@angular/core';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 
 @Component({
   selector: 'app-gnb',
@@ -11,19 +12,23 @@ export class GnbComponent implements OnInit {
   show:boolean = false;
   showTogglerIcon:boolean = false;
 
-  constructor() {
-    //Gets the resolution width of the screen on load.
-    this.innerWidth = window.innerWidth;
-    if(this.innerWidth < 992) {
-      this.show = false;
-      this.showTogglerIcon=true;
-    } else {
-      this.show=true;
-    }
+  constructor(@Inject(PLATFORM_ID) private platformId:Object) {
+
  }
 
   ngOnInit() {
-
+    if(isPlatformBrowser(this.platformId)){
+      //Gets the resolution width of the screen on load.
+      this.innerWidth = window.innerWidth;
+      if(this.innerWidth < 992) {
+        this.show = false;
+        this.showTogglerIcon=true;
+      } else {
+        this.show=true;
+      }
+    } else {
+      //Server Only Code
+    }
   }
 
   //Gets the resolution width of the screen on resize.
